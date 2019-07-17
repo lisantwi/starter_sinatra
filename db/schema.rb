@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_17_160730) do
+ActiveRecord::Schema.define(version: 2019_07_17_182103) do
 
   create_table "car_owners", force: :cascade do |t|
     t.integer "owner_id"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 2019_07_17_160730) do
     t.string "model"
     t.integer "year"
     t.integer "price"
+    t.boolean "for_sale"
   end
 
   create_table "owners", force: :cascade do |t|

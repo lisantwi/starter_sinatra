@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <h1>Edit your Car Listing</h1>
+</head>
+<body>
+<br>
+    <form action="/cars/<%= @car.id %>" method="POST">
+        <input type="hidden" name="_method" value="put">
+        <label for="make">Car Make</label>
+        <input type="text" name="make" value="<%= @car.make %>">
+        <label for="model">Car Model</label>
+        <input type="text" name="model" value="<%= @car.model %>">
+        <br>
+        <label for="price">Price ($)</label>
+        <input type="text" name="price" value="<%= @car.price %>">
+         <label for="for_sale">List Car For Sale?</label>
+         <%# <input type='hidden' name="for_sale" value=<%= @car.for_sale %>
+        <input type="checkbox" name="for_sale" value="<%= !!@car.for_sale %>" <%= @car.is_checked? %>>
+        <br> <br>
+        <input type="submit" value="Edit Listing">
+    </form>
+</body>
+</html>

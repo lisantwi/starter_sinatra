@@ -14,4 +14,19 @@ class CarsController < Sinatra::Base
         erb :show
     end
 
+    get "/cars/:id/edit" do
+        @car = Car.find(params[:id])
+        erb :edit
+    end
+
+    put "/cars/:id" do 
+        @car = Car.find(params[:id])
+        make = params[:make]
+        model = params[:model]
+        price = params[:price]
+        for_sale = params[:for_sale]
+        @car.update(make: make, model: model, price: price, for_sale: for_sale)
+        redirect "/cars/#{@car.id}"
+    end
+
 end
