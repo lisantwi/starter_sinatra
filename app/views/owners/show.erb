@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+    <h1>Owners</h1>
+  
+  <ul>
+        <% @owners.each do |owner|%>
+            <li><a href="/owners/<%=owner.id%>"></a></li>
+            <%end%>
+</ul>
+</body>
+</html>
