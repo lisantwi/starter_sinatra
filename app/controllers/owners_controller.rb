@@ -1,7 +1,10 @@
+require "sinatra/cookies"
+
 class OwnersController < Sinatra::Base
 
     set :views, "app/views/owners"
     set :method_override, true
+    # enable :sessions
 
 
     get "/owners" do
@@ -11,14 +14,22 @@ class OwnersController < Sinatra::Base
 
     post "/owners" do
         @owner = Owner.find_or_create_by(name: params["owner_name"])
-        id = @owner.id
-        redirect "owners/#{id}"
+        session[:owner_id] = @owner.id
+        session[:owner_id]
+        # binding.pry
+        #  id = session[:owner_id]
+        redirect "owners/#{@owner.id}"
     end
 
     get "/owners/:id" do
-        id = params[:id]
-        @owner = Owner.find(id)
-        erb :profile
+        # binding.pry
+        if session[:owner_id] == params[:id].to_i
+            id = session[:owner_id]
+            @owner = Owner.find(id)
+            erb :profile
+        else
+            erb :error
+        end
     end
 
 

@@ -2,6 +2,7 @@ class CarsController < Sinatra::Base
 
     set :views, "app/views/cars"
     set :method_override, true
+    enable :sessions
 
     get "/cars" do
         @cars = Car.all
@@ -10,6 +11,7 @@ class CarsController < Sinatra::Base
 
     get "/cars/:id" do 
         id = params[:id]
+        binding.pry
         @car = Car.find(id)
         erb :show
     end

@@ -8,5 +8,12 @@
 
     <h3>Cost: $<%= @car.price %></h3>
     <h3> Year: <%= @car.year %></h3>
-    <h3>Owner</h3>
+    <h3></h3>
+    <br>
+    <% binding.pry %>
+    <%= @car.owners.name %>
+   
+    <input type="submit" value="Purchase Car" />
+</form>
+
 </body>
