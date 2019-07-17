@@ -8,4 +8,10 @@ class CarsController < Sinatra::Base
         erb :index
     end
 
+    get "/cars/:id" do 
+        id = params[:id]
+        @car = Car.find(id)
+        erb :show
+    end
+
 end

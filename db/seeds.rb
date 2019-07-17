@@ -10,3 +10,11 @@ civic = Car.create(make: "Honda", model: "Civic", year: 2018, price: 19000)
 cayenne = Car.create(make: "Porsche", model: "Cayenne", year: 2018, price: 50000)
 
 lisa.cars << cayenne
+
+20.times do
+    Owner.create(name: Faker::Name.name )
+end
+
+40.times do
+    Car.create(make: Faker::Vehicle.make, model: Faker::Vehicle.model, year: Faker::Number.between(2000, 2020), price: Faker::Number.between(10000, 85000))
+end
