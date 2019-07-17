@@ -10,6 +10,8 @@ civic = Car.create(make: "Honda", model: "Civic", year: 2018, price: 19000)
 cayenne = Car.create(make: "Porsche", model: "Cayenne", year: 2018, price: 50000)
 
 lisa.cars << cayenne
+rob.cars << taurus
+rob.cars << civic
 
 20.times do
     Owner.create(name: Faker::Name.name )
