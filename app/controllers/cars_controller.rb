@@ -11,7 +11,6 @@ class CarsController < Sinatra::Base
     get "/cars/:id" do 
         id = params[:id]
         @car = Car.find(id)
-        binding.pry
         erb :show
     end
 
